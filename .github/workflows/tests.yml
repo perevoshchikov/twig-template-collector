@@ -12,11 +12,10 @@ on:
       - '**.md'
 jobs:
   run:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 15
       matrix:
-        operating-system: [ubuntu-latest]
         php-versions: ['7.1', '7.2', '7.3', '7.4', '8.0']
         twig-versions: ['1.38.0', '^1.38', '2.7.0', '^2.7', '3.0.0', '^3.0']
         exlude:

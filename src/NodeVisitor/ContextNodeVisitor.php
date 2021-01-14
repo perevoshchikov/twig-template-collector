@@ -8,6 +8,7 @@ use Twig\Environment;
 use Twig\Node\ModuleNode;
 use Twig\Node\Node;
 use Twig\NodeVisitor\NodeVisitorInterface;
+use Anper\Twig\TemplateCollector\NodeInterface;
 
 class ContextNodeVisitor implements NodeVisitorInterface
 {
@@ -30,7 +31,7 @@ class ContextNodeVisitor implements NodeVisitorInterface
      *
      * @return Node<Node>
      */
-    public function enterNode($node, Environment $env): Node
+    public function enterNode(NodeInterface $node, Environment $env): Node
     {
         return $node;
     }
@@ -41,7 +42,7 @@ class ContextNodeVisitor implements NodeVisitorInterface
      *
      * @return Node<Node>|null
      */
-    public function leaveNode($node, Environment $env): ?Node
+    public function leaveNode(NodeInterface $node, Environment $env): ?Node
     {
         if ($node instanceof ModuleNode) {
             $this->setNodes($node);
