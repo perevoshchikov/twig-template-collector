@@ -1,7 +1,7 @@
 {
     "name": "anper/twig-template-collector",
     "type": "library",
-    "description": "",
+    "description": "Twig template collector",
     "keywords": [
         "twig",
         "collector"
