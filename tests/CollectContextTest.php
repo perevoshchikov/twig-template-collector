@@ -29,7 +29,7 @@ class CollectContextTest extends TestCase
         $twig->addExtension($extension);
 
         $context = ['name' => 'World'];
-        $content = $twig->render('index.twig', $context);
+        $twig->render('index.twig', $context);
 
         self::assertCount(3, $profiles);
         self::assertSame([
@@ -53,15 +53,5 @@ class CollectContextTest extends TestCase
             'parent_id' => 1,
             'id' => 3,
         ], $profiles[2]->toArray());
-        self::assertSame("Hello!
-
-in macro
-
-in block #1
-
-in macro
-
-in block #2
-", $content);
     }
 }

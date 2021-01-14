@@ -28,7 +28,7 @@ class CollectTemplateTest extends TestCase
 
         $twig->addExtension($extension);
 
-        $content = $twig->render('index.twig');
+        $twig->render('index.twig');
 
         self::assertCount(3, $profiles);
         self::assertSame([
@@ -43,15 +43,6 @@ class CollectTemplateTest extends TestCase
             'path' => $dir . '/macros.twig',
             'name' => 'macros.twig',
         ], $profiles[2]->toArray());
-        self::assertSame("Hello!
-
-in macro
-
-in block #1
-
-in macro
-
-in block #2
-", $content);
     }
+
 }
