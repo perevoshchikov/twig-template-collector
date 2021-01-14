@@ -18,7 +18,7 @@ jobs:
       matrix:
         php-versions: ['7.1', '7.2', '7.3', '7.4', '8.0']
         twig-versions: ['1.38.0', '^1.38', '2.7.0', '^2.7', '3.0.0', '^3.0']
-        exlude:
+        exclude:
           - php-versions: '7.1'
             twig-versions: '3.0.0'
           - php-versions: '7.1'
