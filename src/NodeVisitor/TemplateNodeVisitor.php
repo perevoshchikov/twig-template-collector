@@ -6,10 +6,9 @@ use Anper\Twig\TemplateCollector\Node\EnterTemplateNode;
 use Twig\Environment;
 use Twig\Node\ModuleNode;
 use Twig\Node\Node;
-use Twig\NodeVisitor\NodeVisitorInterface;
-use Anper\Twig\TemplateCollector\NodeInterface;
+use Twig\NodeVisitor\AbstractNodeVisitor;
 
-class TemplateNodeVisitor implements NodeVisitorInterface
+class TemplateNodeVisitor extends AbstractNodeVisitor
 {
     /**
      * @var string
@@ -25,12 +24,9 @@ class TemplateNodeVisitor implements NodeVisitorInterface
     }
 
     /**
-     * @param Node<Node> $node
-     * @param Environment $env
-     *
-     * @return Node<Node>
+     * @inheritDoc
      */
-    public function enterNode(NodeInterface $node, Environment $env): Node
+    protected function doEnterNode(Node $node, Environment $env)
     {
         if ($node instanceof ModuleNode) {
             $node->setNode('constructor_start', new Node([
@@ -43,12 +39,9 @@ class TemplateNodeVisitor implements NodeVisitorInterface
     }
 
     /**
-     * @param Node<Node> $node
-     * @param Environment $env
-     *
-     * @return Node<Node>|null
+     * @inheritDoc
      */
-    public function leaveNode(NodeInterface $node, Environment $env): ?Node
+    protected function doLeaveNode(Node $node, Environment $env)
     {
         return $node;
     }

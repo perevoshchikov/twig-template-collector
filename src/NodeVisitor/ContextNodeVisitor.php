@@ -7,10 +7,13 @@ use Anper\Twig\TemplateCollector\Node\LeaveContextNode;
 use Twig\Environment;
 use Twig\Node\ModuleNode;
 use Twig\Node\Node;
+use Twig\NodeVisitor\AbstractNodeVisitor;
 use Twig\NodeVisitor\NodeVisitorInterface;
 use Anper\Twig\TemplateCollector\NodeInterface;
+use Twig_Environment;
+use Twig_Node;
 
-class ContextNodeVisitor implements NodeVisitorInterface
+class ContextNodeVisitor extends AbstractNodeVisitor
 {
     /**
      * @var string
@@ -26,23 +29,17 @@ class ContextNodeVisitor implements NodeVisitorInterface
     }
 
     /**
-     * @param Node<Node> $node
-     * @param Environment $env
-     *
-     * @return Node<Node>
+     * @inheritDoc
      */
-    public function enterNode(NodeInterface $node, Environment $env): Node
+    protected function doEnterNode(Node $node, Twig_Environment $env)
     {
         return $node;
     }
 
     /**
-     * @param Node<Node> $node
-     * @param Environment $env
-     *
-     * @return Node<Node>|null
+     * @inheritDoc
      */
-    public function leaveNode(NodeInterface $node, Environment $env): ?Node
+    protected function doLeaveNode(Node $node, Twig_Environment $env)
     {
         if ($node instanceof ModuleNode) {
             $this->setNodes($node);

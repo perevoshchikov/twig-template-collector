@@ -16,7 +16,7 @@ jobs:
     strategy:
       max-parallel: 15
       matrix:
-        php-versions: ['7.1', '7.2', '7.3', '7.4', '8.0']
+        php-versions: ['7.1', '7.2', '7.3', '7.4']
         twig-versions: ['1.38.0', '^1.38', '2.7.0', '^2.7', '3.0.0', '^3.0']
         exclude:
           - php-versions: '7.1'
@@ -35,5 +35,7 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Install Twig ${{ matrix.twig-versions }}
         run: composer require twig/twig:${{ matrix.twig-versions }}
+      - name: Composer show
+        run: composer show
       - name: Run phpunit
         run: vendor/bin/phpunit

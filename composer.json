@@ -26,10 +26,7 @@
     "autoload": {
         "psr-4": {
             "Anper\\Twig\\TemplateCollector\\": "src"
-        },
-        "files": [
-            "src/bootstrap.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
