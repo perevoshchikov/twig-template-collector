@@ -24,7 +24,7 @@ jobs:
             twig-versions: '3.0.0'
           - php-versions: '7.1'
             twig-versions: '^3.0'
-    name: PHP ${{ matrix.php-versions }}
+    name: PHP ${{ matrix.php-versions }} / Twig ${{ matrix.twig-versions }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
