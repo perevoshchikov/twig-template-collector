@@ -24,7 +24,10 @@ class TemplateNodeVisitor extends AbstractNodeVisitor
     }
 
     /**
-     * @inheritDoc
+     * @param Node<Node> $node
+     * @param Environment $env
+     *
+     * @return Node<Node>
      */
     protected function doEnterNode(Node $node, Environment $env)
     {
@@ -39,7 +42,10 @@ class TemplateNodeVisitor extends AbstractNodeVisitor
     }
 
     /**
-     * @inheritDoc
+     * @param Node<Node> $node
+     * @param Environment $env
+     *
+     * @return Node<Node>
      */
     protected function doLeaveNode(Node $node, Environment $env)
     {
