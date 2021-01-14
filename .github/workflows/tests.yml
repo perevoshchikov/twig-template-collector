@@ -34,7 +34,7 @@ jobs:
           php-version: ${{ matrix.php-versions }}
       - name: Install Composer
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-      - name: Install Twig ${{ twig.php-versions }}
-        run: composer require twig/twig:${{ twig.php-versions }}
+      - name: Install Twig ${{ matrix.twig-versions }}
+        run: composer require twig/twig:${{ matrix.twig-versions }}
       - name: Run phpunit
         run: vendor/bin/phpunit
