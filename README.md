@@ -1,4 +1,4 @@
-# Anper\TwigTemplateCollector
+# Anper\Twig\TemplateCollector
 
 [![Software License][ico-license]](LICENSE.md)
 [![Latest Version on Packagist][ico-version]][link-packagist]
