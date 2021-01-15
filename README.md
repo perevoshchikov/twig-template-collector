@@ -4,21 +4,36 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Build Status][ico-ga]][link-ga]
 
-"twig/twig": "^1.34|^2.4|^3.0"
-
 ## Install
 
 ``` bash
 $ composer require anper/twig-template-collector
 ```
 
-## Usage
+## Collect context
 
 ``` php
-use Anper\TwigTemplateCollector;
+use Anper\Twig\TemplateCollector\Extension\CollectContextExtension;
+use Anper\Twig\TemplateCollector\Context;
 
-$package = new Package();
-echo $package->echoPhrase('Hello World!');
+$extension = new CollectContextExtension(function (Context $profile){
+    var_dump($profile)
+});
+
+$twigEnvironment->addExtension($loader);
+```
+
+## Collect templates
+
+``` php
+use Anper\Twig\TemplateCollector\Extension\CollectTemplateExtension;
+use Anper\Twig\TemplateCollector\Template;
+
+$extension = new CollectContextExtension(function (Template $profile){
+    var_dump($profile)
+});
+
+$twigEnvironment->addExtension($loader);
 ```
 
 ## Test
